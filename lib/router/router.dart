@@ -1,7 +1,15 @@
-import '../features/crypto_coin/view/crypto_coin_screen.dart';
-import '../features/crypto_list/view/crypto_list_screen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:crypto_currencies_list_app/features/crypto_coin/crypto_coin.dart';
+import 'package:crypto_currencies_list_app/features/crypto_list/crypto_list.dart';
+import 'package:crypto_currencies_list_app/repositories/crypto_coins/crypto_coins.dart';
+import 'package:flutter/material.dart';
+part 'router.gr.dart';
 
-final routes = {
-  '/': (context) => const CryptoListScreen(),
-  '/coin': (context) => const CryptoCoinScreen(),
-};
+@AutoRouterConfig()
+class AppRouter extends _$AppRouter {
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(page: CryptoListRoute.page, path: '/'),
+    AutoRoute(page: CryptoCoinRoute.page),
+  ];
+}
